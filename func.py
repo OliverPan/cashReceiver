@@ -48,8 +48,12 @@ def reload(dict):
 
 if __name__ == "__main__":
     dict = {}
-    fi = open("product.txt", "w+")
-    fi.close()
+    try:
+        fi = open("product.txt", "r+")
+        fi.close()
+    except(IOError):
+        fi = open("product.txt", "w+")
+        fi.close()
     initDict(dict)
     print "欢迎使用银行收银系统"
     print "1. 添加新的商品如库"
